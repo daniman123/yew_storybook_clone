@@ -1,0 +1,13 @@
+
+[workspace]
+
+resolver = "2"
+
+members = [
+    "yew_app_core",
+    "storybook_yew_app",
+    "web_yew_app",
+]
+
+[workspace.dependencies]
+yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
