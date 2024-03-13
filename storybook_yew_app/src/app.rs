@@ -1,5 +1,8 @@
 use std::collections::HashMap;
 use yew::prelude::*;
+use yew_router::prelude::*;
+
+use crate::router::{switch, Route};
 
 #[derive(PartialEq, Properties)]
 pub struct AppProps {
@@ -8,10 +11,10 @@ pub struct AppProps {
 
 #[function_component]
 pub fn App(props: &AppProps) -> Html {
-    let AppProps { stories } = props;
+    let stories = props.stories.clone();
     html! {
-        <div>
-            { for stories.iter().map(|(_key,item)| item.clone()) }
-        </div>
+        <BrowserRouter>
+            <Switch<Route> render={move |route: Route| switch(route,stories.clone())} />
+        </BrowserRouter>
     }
 }
