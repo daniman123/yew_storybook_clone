@@ -21,3 +21,14 @@ pub fn NewTestComp(props: &NewTestCompProps) -> Html {
         <div> {"Testing NewTestComp Lib Comp"} </div>
     }
 }
+
+#[derive(PartialEq, Properties)]
+pub struct GrabMeGGCompProps {}
+
+#[function_component]
+pub fn GrabMeGGComp(props: &GrabMeGGCompProps) -> Html {
+    let GrabMeGGCompProps {} = props;
+    html! {
+        <h3> {" DATAER GIGI"} </h3>
+    }
+}
