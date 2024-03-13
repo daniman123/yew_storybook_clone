@@ -8,6 +8,3 @@ members = [
     "storybook_yew_app",
     "web_yew_app",
 ]
-
-[workspace.dependencies]
-yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
