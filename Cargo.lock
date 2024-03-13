@@ -895,6 +895,7 @@ dependencies = [
 name = "storybook_yew_app"
 version = "0.1.0"
 dependencies = [
+ "yew",
  "yew_app_core",
 ]
 
@@ -1105,6 +1106,10 @@ dependencies = [
 [[package]]
 name = "web_yew_app"
 version = "0.1.0"
+dependencies = [
+ "yew",
+ "yew_app_core",
+]
 
 [[package]]
 name = "winnow"

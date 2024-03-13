@@ -1,10 +1,12 @@
 use yew::prelude::*;
 
+#[derive(PartialEq, Properties)]
+pub struct RootProps {
+    pub children: Html,
+}
+
 #[function_component]
-pub fn App() -> Html {
-    html! {
-        <div>
-           <h2> {"Yew App Core"} </h2>
-        </div>
-    }
+pub fn Root(props: &RootProps) -> Html {
+    let RootProps { children } = props;
+    html! {{ children.clone() }}
 }
