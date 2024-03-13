@@ -894,6 +894,9 @@ dependencies = [
 [[package]]
 name = "storybook_yew_app"
 version = "0.1.0"
+dependencies = [
+ "yew_app_core",
+]
 
 [[package]]
 name = "syn"
