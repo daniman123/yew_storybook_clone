@@ -1,5 +1,6 @@
 mod app;
 mod router;
+mod components;
 extern crate yew_app_core;
 use app::App;
 use yew::prelude::*;

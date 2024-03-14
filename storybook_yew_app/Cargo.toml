@@ -7,3 +7,6 @@ edition = "2021"
 yew_app_core = { path="../yew_app_core" }
 yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 yew-router = { git = "https://github.com/yewstack/yew.git" }
+gloo = "0.11.0"
+gloo-console = "0.3.0"
+wasm-bindgen = "0.2.92"

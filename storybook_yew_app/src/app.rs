@@ -14,7 +14,7 @@ pub fn App(props: &AppProps) -> Html {
     let stories = props.stories.clone();
     html! {
         <BrowserRouter>
-            <Switch<Route> render={move |route: Route| switch(route,stories.clone())} />
+            <Switch<Route> render={move |route: Route| switch(route, stories.clone())} />
         </BrowserRouter>
     }
 }

@@ -8,4 +8,4 @@ port = 8001
 
 [watch]
 # Paths to watch. The `build.target`'s parent folder is watched by default.
-watch = ["../yew_app_core/src/components"]
+watch = ["../yew_app_core/src/components","./src"]
