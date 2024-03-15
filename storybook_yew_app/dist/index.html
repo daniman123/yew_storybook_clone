@@ -537,6 +537,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.static {
+  position: static;
+}
+
 .flex {
   display: flex;
 }
@@ -555,6 +559,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .w-3\/4 {
@@ -581,8 +589,16 @@ video {
   justify-content: center;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .border {
@@ -601,6 +617,11 @@ video {
 .bg-slate-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -626,6 +647,10 @@ video {
   padding-left: 0.25rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .pt-1 {
   padding-top: 0.25rem;
 }
@@ -639,6 +664,11 @@ video {
   line-height: 2.25rem;
 }
 
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -649,19 +679,39 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+section#storybook-root-story-colored div {
+  border: 1px solid darkblue;
+}
+
+section#storybook-root-story-colored section {
+  border: 1px solid salmon;
+}
+
+section#storybook-root-story-colored a {
+  border: 1px solid aqua;
+}
+
+section#storybook-root-story-colored p {
+  border: 1px solid purple;
+}
+
+section#storybook-root-story-colored * {
+  border: 1px solid blue;
+}
+
 .group:hover .group-hover\:border-b-2 {
   border-bottom-width: 2px;
 }
 </style>
 	
-<link rel="preload" href="/storybook_yew_app-6bb022c1f519003_bg.wasm" crossorigin="anonymous" integrity="sha384-OTikeyQGS-wmHm3aXwVtlib36IcQ6bmHWDvWovgY1iJkj943knTNRwwzfzGwZl43" as="fetch" type="application/wasm">
-<link rel="modulepreload" href="/storybook_yew_app-6bb022c1f519003.js" crossorigin="anonymous" integrity="sha384-NFaZWGXaA14eFqrC1zZ6fM5Iom84UZSLQkkwFwk64bL2DLRTJR1JbhN-C5SHvCOv"></head>
+<link rel="preload" href="/storybook_yew_app-4855b7ac1ab7c222_bg.wasm" crossorigin="anonymous" integrity="sha384-lAYHQzRIeMRWnvmJ1h_8FDduPMKbXCaQhwkpAY0-eqjdyNjJkNaYeW2R_T3EIhvJ" as="fetch" type="application/wasm">
+<link rel="modulepreload" href="/storybook_yew_app-4855b7ac1ab7c222.js" crossorigin="anonymous" integrity="sha384-aX3f1GQr7oV3iMPm_h71JnWfi0-ljzWiacLSblw6cClAQFfSSUIRHRiifF5WT-Ho"></head>
 	<body>
 
 
 <script type="module">
-import init, * as bindings from '/storybook_yew_app-6bb022c1f519003.js';
-init('/storybook_yew_app-6bb022c1f519003_bg.wasm');
+import init, * as bindings from '/storybook_yew_app-4855b7ac1ab7c222.js';
+init('/storybook_yew_app-4855b7ac1ab7c222_bg.wasm');
 window.wasmBindings = bindings;
 
 </script><script>"use strict";

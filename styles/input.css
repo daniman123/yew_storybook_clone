@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+section#storybook-root-story-colored div {
+	border: 1px solid darkblue;
+}
+section#storybook-root-story-colored section {
+	border: 1px solid salmon;
+}
+
+section#storybook-root-story-colored a {
+	border: 1px solid aqua;
+}
+
+section#storybook-root-story-colored p {
+	border: 1px solid purple;
+}
+
+section#storybook-root-story-colored * {
+	border: 1px solid blue;
+}

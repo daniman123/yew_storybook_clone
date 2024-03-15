@@ -1,8 +1,9 @@
 use crate::components::layouts::primary_layout::side_bar::SideBar;
-use gloo::events::EventListener;
+use crate::hooks::use_even_hook::use_event;
+use crate::hooks::use_state_set_on_click::use_state_on_click_set_bool;
+use crate::utils::event_handlers::handle_toolbar_key_press;
 use gloo::utils::window;
 use std::collections::HashMap;
-use wasm_bindgen::JsCast;
 use yew::prelude::*;
 
 #[derive(PartialEq, Properties)]
@@ -14,45 +15,34 @@ pub struct PrimaryLayoutProps {
 #[function_component]
 pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     let stories = props.stories.clone();
-    let children = props.children.clone();
 
-    let is_sidebar_hidden = use_state(|| false);
-    let onclick = {
-        let is_sidebar_hidden = is_sidebar_hidden.clone();
-        Callback::from(move |_| is_sidebar_hidden.set(!*is_sidebar_hidden))
+    let (is_sidebar_hidden, onclick) = use_state_on_click_set_bool();
+    let (is_toolbar_hidden, onclick_toolbar) = use_state_on_click_set_bool();
+    let (is_outlined, onclick_outline) = use_state_on_click_set_bool();
+
+    use_event(
+        &window(),
+        "keypress",
+        handle_toolbar_key_press(&is_sidebar_hidden, &is_toolbar_hidden, &is_outlined),
+    );
+
+    let sidebar_style = if *is_sidebar_hidden {
+        "w-[100dvw]"
+    } else {
+        "w-[85dvw]"
     };
 
-    let expanded_sidebar_style = "w-[85dvw]";
-    let minimized_sidebar_style = "w-[100dvw]";
-
-    let is_toolbar_hidden = use_state(|| false);
-    let onclick_toolbar = {
-        let is_toolbar_hidden = is_toolbar_hidden.clone();
-        Callback::from(move |_| is_toolbar_hidden.set(!*is_toolbar_hidden))
+    let toolbar_style = if *is_toolbar_hidden {
+        "h-[100dvh]"
+    } else {
+        "h-[95dvh]"
     };
 
-    let expanded_toolbar_style = "h-[95dvh]";
-    let minimized_toolbar_style = "h-[100dvh]";
-
-    let is_sidebar_hidden_clone = is_sidebar_hidden.clone();
-    let is_toolbar_hidden_clone = is_toolbar_hidden.clone();
-    
-    use_effect(move || {
-        let listener = EventListener::new(&window(), "keypress", move |event: &Event| {
-            if let Some(keyboard_event) = event.dyn_ref::<yew::KeyboardEvent>() {
-                let key_pressed = keyboard_event.key();
-
-                if key_pressed == "f" {
-                    is_sidebar_hidden_clone.set(!*is_sidebar_hidden_clone)
-                };
-                if key_pressed == "t" {
-                    is_toolbar_hidden_clone.set(!*is_toolbar_hidden_clone)
-                };
-            }
-        });
-
-        move || drop(listener)
-    });
+    let story_content_style = if *is_outlined {
+        "storybook-root-story-colored"
+    } else {
+        "storybook-root-story"
+    };
 
     html! {
         <main class="flex h-full w-full">
@@ -61,15 +51,18 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
                     <SideBar stories={stories}/>
                 </section>
             }
-            <section class={classes!("h-[100dvh]", if !*is_sidebar_hidden {expanded_sidebar_style}else{minimized_sidebar_style}, "bg-slate-300")}>
+            <section class={classes!("h-[100dvh]", sidebar_style, "bg-slate-300")}>
                 if !*is_toolbar_hidden {
-                    <div class="h-[5dvh] flex shadow-2xl">
-                        <button {onclick}>{ "Full Screen" }</button>
-                        <button onclick={onclick_toolbar}>{ "Toggle Toolbar" }</button>
+                    <div class="h-[5dvh] pl-2 flex shadow-2xl gap-2">
+                        <button onclick={onclick} class="border rounded-md text-xs bg-slate-400">{ "Full Screen" }</button>
+                        <button onclick={onclick_toolbar} class="border rounded-md text-xs bg-slate-400">{ "Toggle Toolbar" }</button>
+                        <button onclick={onclick_outline} class="border rounded-md text-xs bg-slate-400">{ "Toggle Element Outlines" }</button>
                     </div>
                 }
-                <section class={classes!(if !*is_toolbar_hidden {expanded_toolbar_style}else{minimized_toolbar_style},"pl-1","pt-1","border","border-black","bg-white", if !*is_sidebar_hidden {expanded_sidebar_style}else{minimized_sidebar_style})}>
-                    {children}
+                <section
+                    id={story_content_style}
+                    class={classes!(toolbar_style,"pl-1","pt-1","border","border-black","bg-white", sidebar_style)}>
+                    {props.children.clone()}
                 </section>
             </section>
         </main>

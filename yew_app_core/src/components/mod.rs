@@ -18,7 +18,7 @@ pub struct NewTestCompProps {}
 pub fn NewTestComp(props: &NewTestCompProps) -> Html {
     let NewTestCompProps {} = props;
     html! {
-        <div> {"Testing NewTestComp Lib Comp"} </div>
+        <div class="w-1/2"> {"Testing NewTestComp Lib Comp"} </div>
     }
 }
 
