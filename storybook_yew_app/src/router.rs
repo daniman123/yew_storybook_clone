@@ -1,8 +1,6 @@
 use std::collections::HashMap;
-
 use yew::prelude::*;
 use yew_router::prelude::*;
-
 use crate::components::layouts::primary_layout::layout::PrimaryLayout;
 
 #[derive(Clone, Routable, PartialEq)]
@@ -18,7 +16,7 @@ pub enum Route {
 
 pub fn switch(routes: Route, stories: HashMap<String, Html>) -> Html {
     match routes {
-        Route::Home => html! { 
+        Route::Home => html! {
             <PrimaryLayout stories={stories}>
                 <div>
                     {"Content"}
@@ -27,11 +25,7 @@ pub fn switch(routes: Route, stories: HashMap<String, Html>) -> Html {
         },
         Route::Story { id } => html! {
             <PrimaryLayout stories={stories.clone()}>
-                <section id="story-root">
-                    {
-                        stories.get(&id).unwrap().clone()
-                    }
-                </section>
+                {stories.get(&id).unwrap().clone()}
             </PrimaryLayout>
         },
         Route::NotFound => html! { <h1>{ "404" }</h1> },

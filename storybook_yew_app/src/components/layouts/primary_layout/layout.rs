@@ -1,4 +1,6 @@
 use crate::components::layouts::primary_layout::side_bar::SideBar;
+use crate::components::layouts::primary_layout::tool_bar::ToolBar;
+use crate::components::layouts::secondary_layout::story_content_container::StoryContainer;
 use crate::hooks::use_even_hook::use_event;
 use crate::hooks::use_state_set_on_click::use_state_on_click_set_bool;
 use crate::utils::event_handlers::handle_toolbar_key_press;
@@ -16,7 +18,7 @@ pub struct PrimaryLayoutProps {
 pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     let stories = props.stories.clone();
 
-    let (is_sidebar_hidden, onclick) = use_state_on_click_set_bool();
+    let (is_sidebar_hidden, onclick_fullscreen) = use_state_on_click_set_bool();
     let (is_toolbar_hidden, onclick_toolbar) = use_state_on_click_set_bool();
     let (is_outlined, onclick_outline) = use_state_on_click_set_bool();
 
@@ -53,17 +55,19 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
             }
             <section class={classes!("h-[100dvh]", sidebar_style, "bg-slate-300")}>
                 if !*is_toolbar_hidden {
-                    <div class="h-[5dvh] pl-2 flex shadow-2xl gap-2">
-                        <button onclick={onclick} class="border rounded-md text-xs bg-slate-400">{ "Full Screen" }</button>
-                        <button onclick={onclick_toolbar} class="border rounded-md text-xs bg-slate-400">{ "Toggle Toolbar" }</button>
-                        <button onclick={onclick_outline} class="border rounded-md text-xs bg-slate-400">{ "Toggle Element Outlines" }</button>
-                    </div>
+                    <ToolBar
+                        {onclick_fullscreen}
+                        {onclick_toolbar}
+                        {onclick_outline}
+                    />
                 }
-                <section
-                    id={story_content_style}
-                    class={classes!(toolbar_style,"pl-1","pt-1","border","border-black","bg-white", sidebar_style)}>
+                <StoryContainer
+                    {story_content_style}
+                    { toolbar_style}
+                    { sidebar_style}
+                >
                     {props.children.clone()}
-                </section>
+                </StoryContainer>
             </section>
         </main>
     }
