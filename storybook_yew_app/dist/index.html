@@ -665,6 +665,12 @@ video {
   gap: 1.5rem;
 }
 
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -690,9 +696,8 @@ video {
   border-bottom-width: 4px;
 }
 
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+.border-l-4 {
+  border-left-width: 4px;
 }
 
 .border-gray-200 {
@@ -703,6 +708,11 @@ video {
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
+.border-slate-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(100 116 139 / var(--tw-border-opacity));
 }
 
 .bg-blue-700 {
@@ -771,9 +781,9 @@ video {
   padding-bottom: 0.625rem;
 }
 
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pl-1 {
@@ -788,6 +798,10 @@ video {
   padding-top: 0.25rem;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
 }
@@ -800,6 +814,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -868,6 +887,11 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.drop-shadow-xl {
+  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 section#storybook-root-story-colored div {
   border: 1px solid darkblue;
 }
@@ -927,8 +951,9 @@ section#storybook-root-story-colored * {
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
 }
 
-.group:hover .group-hover\:border-b-2 {
-  border-bottom-width: 2px;
+.group:hover .group-hover\:bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 
 :is([dir="rtl"] .rtl\:rotate-180) {
@@ -1035,14 +1060,14 @@ section#storybook-root-story-colored * {
 }
 </style>
 	
-<link rel="preload" href="/storybook_yew_app-2e9882543f302a5f_bg.wasm" crossorigin="anonymous" integrity="sha384-_eyWiPO24HOyy2qf3AoEUWZc0uVI10lBZlCGJXtlgpQt6WqyNUUlsX0HJVnfKepU" as="fetch" type="application/wasm">
-<link rel="modulepreload" href="/storybook_yew_app-2e9882543f302a5f.js" crossorigin="anonymous" integrity="sha384-zhi4xfmqaQmdq84kXI-K89z7FRERm-NSGbMcKN680a9H3STKijqQ9zH-IncSnLw2"></head>
+<link rel="preload" href="/storybook_yew_app-6292a6d22be52722_bg.wasm" crossorigin="anonymous" integrity="sha384-x2Qsm3rj2h_FEXSseQFLlrb6_mnBTYByVPI4mXyj1tR1mjTBGcoNYH6aYDOWCpuu" as="fetch" type="application/wasm">
+<link rel="modulepreload" href="/storybook_yew_app-6292a6d22be52722.js" crossorigin="anonymous" integrity="sha384-zhi4xfmqaQmdq84kXI-K89z7FRERm-NSGbMcKN680a9H3STKijqQ9zH-IncSnLw2"></head>
 	<body>
 
 
 <script type="module">
-import init, * as bindings from '/storybook_yew_app-2e9882543f302a5f.js';
-init('/storybook_yew_app-2e9882543f302a5f_bg.wasm');
+import init, * as bindings from '/storybook_yew_app-6292a6d22be52722.js';
+init('/storybook_yew_app-6292a6d22be52722_bg.wasm');
 window.wasmBindings = bindings;
 
 </script><script>"use strict";

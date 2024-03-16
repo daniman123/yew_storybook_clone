@@ -49,7 +49,7 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     html! {
         <main class="flex h-full w-full">
             if !*is_sidebar_hidden {
-                <section class="h-[100dvh] w-[15dvw] bg-slate-300 shadow-2xl">
+                <section class="h-[100dvh] w-[15dvw] bg-slate-300  drop-shadow-xl">
                     <SideBar stories={stories}/>
                 </section>
             }
