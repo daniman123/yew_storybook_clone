@@ -6,4 +6,3 @@ edition = "2021"
 [dependencies]
 yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 yew_app_core = { path="../yew_app_core" }
-regex = "1.10.3"
