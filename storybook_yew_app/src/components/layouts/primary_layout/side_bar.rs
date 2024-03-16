@@ -1,9 +1,7 @@
-use std::collections::HashMap;
-
+use crate::{components::ui::title::TitleBanner, router::Route};
+use std::{collections::HashMap, vec};
 use yew::prelude::*;
 use yew_router::prelude::*;
-
-use crate::router::Route;
 
 #[derive(PartialEq, Properties)]
 pub struct SideBarProps {
@@ -13,11 +11,16 @@ pub struct SideBarProps {
 #[function_component]
 pub fn SideBar(props: &SideBarProps) -> Html {
     let SideBarProps { stories } = props;
+
+    let title_style = vec![
+        "text-3xl".to_string(),
+        "border-b-4".to_string(),
+        "rounded".to_string(),
+    ];
+
     html! {
         <div class="w-full px-2">
-            <h2 class="p-2 text-3xl font-semibold border-b-4 rounded text-center">
-                {"Stories"}
-            </h2>
+            <TitleBanner label={"Stories"} styles={title_style} />
             <div class="w-full py-3">
                 { for stories.keys().map(|id| {
                     html! {

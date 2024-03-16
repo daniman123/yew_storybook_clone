@@ -16,10 +16,21 @@ pub fn StoryContainer(props: &StoryContainerProps) -> Html {
         toolbar_style,
         sidebar_style,
     } = props;
+
+    let section_styling = classes!(
+        toolbar_style,
+        "pl-1",
+        "pt-1",
+        "border",
+        "border-black",
+        "bg-white",
+        sidebar_style
+    );
+
     html! {
         <section
-            id={<std::string::String as Clone>::clone(story_content_style)}
-            class={classes!(toolbar_style,"pl-1","pt-1","border","border-black","bg-white", <std::string::String as Clone>::clone(sidebar_style))}>
+            id={story_content_style.clone()}
+            class={section_styling}>
             {children}
         </section>
     }
