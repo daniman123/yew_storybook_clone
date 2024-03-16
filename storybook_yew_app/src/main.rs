@@ -1,9 +1,9 @@
+extern crate yew_app_core;
 mod app;
 mod components;
 mod hooks;
 mod router;
 mod utils;
-extern crate yew_app_core;
 use app::App;
 use yew::prelude::*;
 use yew_app_core::{

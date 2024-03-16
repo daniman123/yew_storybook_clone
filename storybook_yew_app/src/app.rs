@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 use yew::prelude::*;
 use yew_router::prelude::*;
-
 use crate::router::{switch, Route};
 
 #[derive(PartialEq, Properties)]
