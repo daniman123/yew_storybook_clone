@@ -49,11 +49,11 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     html! {
         <main class="flex h-full w-full">
             if !*is_sidebar_hidden {
-                <section class="h-[100dvh] w-[15dvw] bg-slate-300  drop-shadow-xl">
+                <section class="h-[100dvh] w-[15dvw] bg-gray-50 border-r border-gray-200 shadow-md">
                     <SideBar stories={stories}/>
                 </section>
             }
-            <section class={classes!("h-[100dvh]", sidebar_style, "bg-slate-300")}>
+            <section class={classes!("h-[100dvh]", sidebar_style, "bg-white")}>
                 if !*is_toolbar_hidden {
                     <ToolBar
                         {onclick_fullscreen}

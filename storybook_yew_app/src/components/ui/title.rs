@@ -9,7 +9,7 @@ pub struct TitleBannerProps {
 #[function_component]
 pub fn TitleBanner(props: &TitleBannerProps) -> Html {
     let TitleBannerProps { label, styles } = props;
-    let mut title_style = classes!("p-2", "font-semibold", "text-center");
+    let mut title_style = classes!("p-2", "font-bold", "text-center");
     title_style.extend(styles);
 
     html! {

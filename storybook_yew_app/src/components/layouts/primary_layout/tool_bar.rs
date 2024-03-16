@@ -19,8 +19,19 @@ pub fn ToolBar(props: &ToolBarProps) -> Html {
 
     let button_styles = vec!["".to_string()];
 
+    let toolbar_style = classes!(
+        "h-[5dvh]",
+        "pl-2",
+        "py-2",
+        " flex",
+        "gap-2",
+        "border-b",
+        "border-gray-200",
+        "shadow-md"
+    );
+
     html! {
-        <div class="h-[5dvh] pl-2 py-2 flex shadow-2xl gap-2">
+        <div class={toolbar_style}>
             <Button styles={button_styles.clone()} label="Full Screen" onclick={onclick_fullscreen}/>
             <Button styles={button_styles.clone()} label="Toggle Toolbar" onclick={onclick_toolbar}/>
             <Button styles={button_styles.clone()} label="Toggle Element Outlines" onclick={onclick_outline}/>

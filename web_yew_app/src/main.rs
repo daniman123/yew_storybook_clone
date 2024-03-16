@@ -1,9 +1,6 @@
 extern crate yew_app_core;
 use yew::prelude::*;
-use yew_app_core::{
-    app::{Root, RootProps},
-    components::TestComp,
-};
+use yew_app_core::app::{Root, RootProps};
 
 #[derive(PartialEq, Properties)]
 pub struct AppProps {}
@@ -14,7 +11,6 @@ pub fn App(props: &AppProps) -> Html {
     html! {
         <>
             <h2> {"Main App!"} </h2>
-            <TestComp />
         </>
     }
 }

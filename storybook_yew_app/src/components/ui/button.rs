@@ -18,11 +18,11 @@ pub fn Button(props: &ButtonProps) -> Html {
     let mut button_style = classes!(
         "rounded-md",
         "text-xs",
+        "text-white",
         "font-semibold",
         "px-2",
-        "opacity-90",
-        "hover:opacity-100",
-        "bg-slate-400"
+        "hover:bg-blue-900",
+        "bg-blue-800"
     );
     button_style.extend(styles);
 
