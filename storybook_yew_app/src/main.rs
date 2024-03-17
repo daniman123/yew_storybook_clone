@@ -9,7 +9,7 @@ use yew::prelude::*;
 use yew_app_core::{
     app::{Root, RootProps},
     component_registry::ComponentsRegistry,
-    components::example_components::{Card, InputFields, JumboTron},
+    components::example_components::{Card, InputFields, JumboTron, SearchInput, SearchInputSmall},
 };
 
 fn main() {
@@ -17,6 +17,8 @@ fn main() {
     components_registry.register_component("Card", html! {<Card/>});
     components_registry.register_component("InputFields", html! {<InputFields/>});
     components_registry.register_component("JumboTron", html! {<JumboTron/>});
+    components_registry.register_component("SearchInput", html! {<SearchInput/>});
+    components_registry.register_component("SearchInputSmall", html! {<SearchInputSmall/>});
 
     let story_components = components_registry.get_components();
     let app = html! {<App stories={story_components} />};

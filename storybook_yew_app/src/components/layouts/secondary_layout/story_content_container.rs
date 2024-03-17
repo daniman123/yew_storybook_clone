@@ -30,8 +30,8 @@ pub fn StoryContainer(props: &StoryContainerProps) -> Html {
 
     html! {
         <section
-            id={story_content_style.clone()}
-            class={section_styling}>
+        id={story_content_style.clone()}
+        class={section_styling}>
             {children}
         </section>
     }
