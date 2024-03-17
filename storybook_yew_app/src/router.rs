@@ -1,7 +1,9 @@
+use crate::components::layouts::{
+    primary_layout::layout::PrimaryLayout, secondary_layout::welcome_main_page::WelcomePage,
+};
 use std::collections::HashMap;
 use yew::prelude::*;
 use yew_router::prelude::*;
-use crate::components::layouts::primary_layout::layout::PrimaryLayout;
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
@@ -17,14 +19,12 @@ pub enum Route {
 pub fn switch(routes: Route, stories: HashMap<String, Html>) -> Html {
     match routes {
         Route::Home => html! {
-            <PrimaryLayout stories={stories}>
-                <div>
-                    {"Content"}
-                </div>
+            <PrimaryLayout stories={stories} id={"".to_string()}>
+                <WelcomePage />
             </PrimaryLayout>
         },
         Route::Story { id } => html! {
-            <PrimaryLayout stories={stories.clone()}>
+            <PrimaryLayout stories={stories.clone()} id={id.clone()}>
                 {stories.get(&id).unwrap().clone()}
             </PrimaryLayout>
         },

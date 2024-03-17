@@ -9,13 +9,14 @@ use yew::prelude::*;
 use yew_app_core::{
     app::{Root, RootProps},
     component_registry::ComponentsRegistry,
-    components::example_stories::{Card, InputFields},
+    components::example_components::{Card, InputFields, JumboTron},
 };
 
 fn main() {
     let mut components_registry = ComponentsRegistry::new();
     components_registry.register_component("Card", html! {<Card/>});
     components_registry.register_component("InputFields", html! {<InputFields/>});
+    components_registry.register_component("JumboTron", html! {<JumboTron/>});
 
     let story_components = components_registry.get_components();
     let app = html! {<App stories={story_components} />};

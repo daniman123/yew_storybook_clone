@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ["../yew_app_core/src/components/**/*.{html,rs}"],
+	content: [
+		"./src/**/*.{html,rs}",
+		"../yew_app_core/src/components/**/*.{html,rs}",
+	],
 	theme: {
 		extend: {},
 	},

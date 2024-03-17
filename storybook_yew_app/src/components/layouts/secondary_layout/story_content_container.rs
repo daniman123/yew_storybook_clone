@@ -17,7 +17,16 @@ pub fn StoryContainer(props: &StoryContainerProps) -> Html {
         sidebar_style,
     } = props;
 
-    let section_styling = classes!(toolbar_style, "pl-2", "pt-2", "bg-white", sidebar_style);
+    let section_styling = classes!(
+        "relative",
+        "z-0",
+        "max-w-full",
+        toolbar_style,
+        "pl-2",
+        "pt-2",
+        "bg-white",
+        sidebar_style
+    );
 
     html! {
         <section

@@ -5,6 +5,7 @@ use yew::prelude::*;
 #[derive(PartialEq, Properties)]
 pub struct SideBarProps {
     pub stories: HashMap<String, Html>,
+    pub id: String,
 }
 
 #[function_component]
@@ -18,7 +19,7 @@ pub fn SideBar(props: &SideBarProps) -> Html {
                 <TitleBanner label={"StoryBook"} styles={title_style} />
             </div>
             <div class={classes!(segment_width,"py-5")}>
-                <StoryRoutes stories={props.stories.clone()} />
+                <StoryRoutes stories={props.stories.clone()} current_story_id={props.id.clone()} />
             </div>
         </div>
     }

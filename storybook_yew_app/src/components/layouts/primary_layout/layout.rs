@@ -12,11 +12,13 @@ use yew::prelude::*;
 pub struct PrimaryLayoutProps {
     pub children: Html,
     pub stories: HashMap<String, Html>,
+    pub id: Option<String>,
 }
 
 #[function_component]
 pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     let stories = props.stories.clone();
+    let id = props.id.clone();
 
     let (is_sidebar_hidden, onclick_fullscreen) = use_state_on_click_set_bool();
     let (is_toolbar_hidden, onclick_toolbar) = use_state_on_click_set_bool();
@@ -50,7 +52,7 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
         <main class="flex h-full w-full">
             if !*is_sidebar_hidden {
                 <section class="h-[100dvh] w-[15dvw] bg-gray-50 border-r border-gray-200 shadow-md">
-                    <SideBar stories={stories}/>
+                    <SideBar stories={stories} id={id.unwrap()} />
                 </section>
             }
             <section class={classes!("h-[100dvh]", sidebar_style, "bg-white")}>

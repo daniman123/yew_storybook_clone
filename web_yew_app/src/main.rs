@@ -10,7 +10,7 @@ pub fn App(props: &AppProps) -> Html {
     let AppProps {} = props;
     html! {
         <>
-            <h2> {"Main App!"} </h2>
+            <h2 class="font-semibold"> {"Main App!"} </h2>
         </>
     }
 }

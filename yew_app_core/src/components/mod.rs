@@ -1,1 +1,1 @@
-pub mod example_stories;
+pub mod example_components;
