@@ -9,7 +9,10 @@ use yew::prelude::*;
 use yew_app_core::{
     app::{Root, RootProps},
     component_registry::ComponentsRegistry,
-    components::example_components::{Card, InputFields, JumboTron, SearchInput, SearchInputSmall},
+    components::example_components::{
+        Card, CardProps, InputFields, InputFieldsProps, JumboTron, JumboTronProps, SearchInput,
+        SearchInputProps, SearchInputSmall, SearchInputSmallProps,
+    },
     register_components,
 };
 
@@ -18,11 +21,16 @@ fn main() {
 
     register_components!(
         components_registry,
-        Card,
-        InputFields,
-        JumboTron,
-        SearchInput,
-        SearchInputSmall
+        (Card, CardProps {}),
+        (
+            InputFields,
+            InputFieldsProps {
+                test_prop: "First name".into()
+            }
+        ),
+        (JumboTron, JumboTronProps {}),
+        (SearchInput, SearchInputProps {}),
+        (SearchInputSmall, SearchInputSmallProps {})
     );
 
     let story_components = components_registry.get_components();

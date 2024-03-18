@@ -24,9 +24,9 @@ impl ComponentsRegistry {
 
 #[macro_export]
 macro_rules! register_components {
-    ($registry:expr, $($component:ident),*) => {
+    ($registry:expr, $(($component:ident, $props:expr)),*) => {
         $(
-            $registry.register_component(stringify!($component), html! {<$component/>});
+            $registry.register_component(stringify!($component), html! {<$component ..$props />});
         )*
     };
 }

@@ -44,11 +44,13 @@ pub fn Card(props: &CardProps) -> Html {
 }
 
 #[derive(PartialEq, Properties)]
-pub struct InputFieldsProps {}
+pub struct InputFieldsProps {
+    pub test_prop: AttrValue,
+}
 
 #[function_component]
 pub fn InputFields(props: &InputFieldsProps) -> Html {
-    let InputFieldsProps {} = props;
+    // let InputFieldsProps { test_prop } = props;
     html! {
         <div class="w-1/2">
             <form>
@@ -58,7 +60,7 @@ pub fn InputFields(props: &InputFieldsProps) -> Html {
                             for="first_name"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                         >
-                            { "First name" }
+                            { props.test_prop.clone() }
                         </label>
                         <input
                             type="text"
