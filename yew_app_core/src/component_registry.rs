@@ -21,3 +21,12 @@ impl ComponentsRegistry {
         self.components_map.clone()
     }
 }
+
+#[macro_export]
+macro_rules! register_components {
+    ($registry:expr, $($component:ident),*) => {
+        $(
+            $registry.register_component(stringify!($component), html! {<$component/>});
+        )*
+    };
+}
