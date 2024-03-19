@@ -1,1 +1,3 @@
 /target
+/storybook_yew_app/dist
+/web_yew_app/dist
