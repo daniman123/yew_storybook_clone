@@ -33,15 +33,10 @@ The Yew StorybookClone provides a dedicated environment for visually testing Yew
 
 **For your components to be used within StoryBook - do the following:**
 
-The components for your Yew app, will be stored in the dir "yew_app_core/src/components", and should be imported and "registered", within the "storybook_yew_app/src
-/main.rs" dir. 
-The story collection "components_registry = ComponentsRegistry::new();", should also be imported from the dir "yew_app_core/src".
+The components for your Yew app, will be stored in the dir "yew_app_core/src/components", and should be imported and "registered", within the "yew_app_core/src/stories.rs" file. 
 
 ### Example of registering components for Storybook:
 ```
-fn main() {
-    let mut components_registry = ComponentsRegistry::new();
-
     register_components!(
         components_registry,
         (Card, CardProps {}),
@@ -56,11 +51,6 @@ fn main() {
         (SearchInputSmall, SearchInputSmallProps {})
     );
 
-    let story_components = components_registry.get_components();
-    let app = html! {<App stories={story_components} />};
-
-    yew::Renderer::<Root>::with_props(RootProps { children: app }).render();
-}
 ```
 
 In order to run "Storybook" test suite, cd into dir "storybook_yew_app"
