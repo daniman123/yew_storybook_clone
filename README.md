@@ -9,8 +9,6 @@ The Yew StorybookClone provides a dedicated environment for visually testing Yew
 **Your Main Yew project comes as a bare bones preset, along with the Storybook test suite.**
 **TailwindCSS has been setup in both the Yew app aswell as in Storybook. Consult Trunks website, "https://trunkrs.dev/assets/", to implement a custom styling setup.**
 
-
-
 ### Prerequisites
 
 - cargo generate
@@ -33,9 +31,10 @@ The Yew StorybookClone provides a dedicated environment for visually testing Yew
 
 **For your components to be used within StoryBook - do the following:**
 
-The components for your Yew app, will be stored in the dir "yew_app_core/src/components", and should be imported and "registered", within the "yew_app_core/src/stories.rs" file. 
+The components for your Yew app, will be stored in the dir "yew_app_core/src/components", and should be imported and "registered", within the "yew_app_core/src/stories.rs" file.
 
 ### Example of registering components for Storybook:
+
 ```
     register_components!(
         components_registry,
