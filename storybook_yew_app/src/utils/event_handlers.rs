@@ -19,3 +19,15 @@ pub fn handle_toolbar_key_press(tool_bar_states: UseStateHandle<ToolBarStates>) 
         }
     }
 }
+
+pub fn create_toggle_callback(
+    tool_bar_states: &UseStateHandle<ToolBarStates>,
+    toggle_field: fn(&mut ToolBarStates),
+) -> Callback<MouseEvent> {
+    let is_state_bool = tool_bar_states.clone();
+    Callback::from(move |_| {
+        let mut new_state = is_state_bool.deref().clone();
+        toggle_field(&mut new_state);
+        is_state_bool.set(new_state);
+    })
+}
