@@ -62,7 +62,7 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
     use_event(
         &window(),
         "keypress",
-        handle_toolbar_key_press(&tool_bar_states),
+        handle_toolbar_key_press(tool_bar_states.clone()),
     );
 
     let sidebar_style = if tool_bar_states.is_sidebar_hidden {
