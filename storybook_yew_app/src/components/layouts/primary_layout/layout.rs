@@ -31,24 +31,6 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
         is_toolbar_hidden,
     } = *tool_bar_states;
 
-    let sidebar_style = if is_sidebar_hidden {
-        "w-[100dvw]"
-    } else {
-        "w-[85dvw]"
-    };
-
-    let toolbar_style = if is_toolbar_hidden {
-        "h-[100dvh]"
-    } else {
-        "h-[95dvh]"
-    };
-
-    let story_content_style = if is_outlined {
-        "storybook-root-story-colored"
-    } else {
-        "storybook-root-story"
-    };
-
     html! {
         <main class="flex h-full w-full">
             if !is_sidebar_hidden {
@@ -56,15 +38,13 @@ pub fn PrimaryLayout(props: &PrimaryLayoutProps) -> Html {
                     <SideBar stories={stories} id={id.unwrap()} />
                 </section>
             }
-            <section class={classes!("h-[100dvh]", sidebar_style, "bg-white")}>
+            <section class={classes!("h-full", "w-full", "bg-white")}>
                     <ToolBar
                         {tool_bar_states}
                         {is_toolbar_hidden}
                     />
                 <StoryContainer
-                    {story_content_style}
-                    { toolbar_style}
-                    { sidebar_style}
+                    {is_outlined}
                 >
                     {props.children.clone()}
                 </StoryContainer>

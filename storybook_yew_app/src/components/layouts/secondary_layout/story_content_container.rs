@@ -3,34 +3,29 @@ use yew::prelude::*;
 #[derive(PartialEq, Properties)]
 pub struct StoryContainerProps {
     pub children: Html,
-    pub story_content_style: String,
-    pub toolbar_style: String,
-    pub sidebar_style: String,
+    pub is_outlined: bool,
 }
 
 #[function_component]
 pub fn StoryContainer(props: &StoryContainerProps) -> Html {
     let StoryContainerProps {
         children,
-        story_content_style,
-        toolbar_style,
-        sidebar_style,
+        is_outlined,
     } = props;
 
     let section_styling = classes!(
         "relative",
         "z-0",
         "max-w-full",
-        toolbar_style,
+        "h-full",
         "pl-2",
         "pt-2",
         "bg-white",
-        sidebar_style
     );
 
     html! {
         <section
-        id={story_content_style.clone()}
+        id={if *is_outlined {"storybook-root-story-colored"} else {"storybook-root-story"}}
         class={section_styling}>
             {children}
         </section>

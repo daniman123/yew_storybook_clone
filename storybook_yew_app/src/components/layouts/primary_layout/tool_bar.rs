@@ -47,6 +47,7 @@ pub fn ToolBar(props: &ToolBarProps) -> Html {
     let onclick_outline = create_toggle_callback(&tool_bar_states, |state| {
         state.is_outlined = !state.is_outlined;
     });
+
     html! {
         if !is_toolbar_hidden {
             <div class={toolbar_style}>
